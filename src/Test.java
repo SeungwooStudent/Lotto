@@ -1,4 +1,5 @@
-import java.util.Random;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Test {
 	public static void main(String[] args) {
@@ -28,21 +29,23 @@ public class Test {
 //			System.out.println(num);
 //		}
 		
-//		Set<Integer> set = new HashSet<>();
-//		set.add(1);
-//		set.add(2);
-//		set.add(3);
-//		set.add(4);
-//		set.add(5);
-//		set.add(6);
+		Set<Integer> set = new HashSet<>();
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		set.add(4);
+		set.add(5);
+		set.add(6);
 //		
-//		int arr[] = {2,3,6,7,8,9};
-//		for(int num : arr) {
-//			System.out.println(set.contains(num));
-//		}
+		int arr[] = {2,3,6,7,8,9};
+		for(int num : arr) {
+			System.out.println(set.contains(num));
+		}
 		
-		Random random = new Random();
-		int num = random.nextInt(45);
-		System.out.println(num);
-	}
+//		Random random = new Random();
+//		int num = random.nextInt(45);
+//		System.out.println(num);
+		
+}
+
 }

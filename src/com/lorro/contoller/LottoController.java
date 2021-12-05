@@ -1,5 +1,6 @@
 package com.lorro.contoller;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.lorro.model.LottoManager;
@@ -10,15 +11,50 @@ public class LottoController {
 		LottoConsoleUI lottoConsolUI = new LottoConsoleUI();
 		LottoManager lottoManager = new LottoManager();
 		Scanner sc = new Scanner(System.in);
-		
-		while(true) {
+
+		boolean isFinished = true;
+		while (isFinished) {
 			lottoConsolUI.inputnumberDisplay();
-			for(int i = 0; i < 6; i++) {
-				int num = sc.nextInt();
-				lottoManager.addInputNumber(num);
+			try {
+				int inputnum = 0;
+				for (int i = 0; i < 6; i++) {
+					inputnum = sc.nextInt();
+					lottoManager.addInputNumber(inputnum);
+					lottoManager.inputOverlapCheck();
+
+					isFinished = false;
+				}
+			} catch (InputMismatchException ime) {
+				lottoConsolUI.printInputMistmatchError();
+				sc = new Scanner(System.in);
+				continue;
 			}
-			
+
+			lottoManager.printAll();
+
+			lottoConsolUI.numberEnrollment();
+
+			lottoConsolUI.winningnumber();
+			String answer = sc.next();
+			isFinished = true;
+			if (answer.equals("Y") || answer.equals("y")) {
+				lottoManager.winingNumber();
+				lottoConsolUI.lottoResultConfirm();
+				answer = sc.next();
+				if (answer.equals("Y") || answer.equals("y")) {
+					lottoManager.lottoResult();
+				} else if (answer.equals("N") || answer.equals("n")) {
+					lottoConsolUI.endLotto();
+				} else {
+					lottoConsolUI.lottoTry();
+				}
+			} else if (answer.equals("N") || answer.equals("n")) {
+				lottoConsolUI.endLotto();
+			} else {
+				lottoConsolUI.lottoTry();
+			}
 		}
+
 	}
 
 }
