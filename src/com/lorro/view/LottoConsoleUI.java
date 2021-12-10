@@ -49,4 +49,25 @@ public class LottoConsoleUI {
 	public void lottoLimit() {
 		System.out.println("1이상 45이하의 숫자만 입력해주세요");
 	}
+
+	public void printResultCount(int count) {
+		System.out.println("당첨 갯수는 : " + count + " 입니다!!");
+	}
+
+	public void printResult(int count, boolean isCorrectWithBonus) {
+		// 3개 맞으면 5등, 4개->4등 5->3등 6개 -> 1등
+		if (count == 3) {
+			System.out.println("5등 입니다");
+		} else if(count == 4) {
+			System.out.println("4등 입니다");
+		} else if (count == 5 && !isCorrectWithBonus) {
+			System.out.println("3등 입니다");
+		} else if (count == 5 && isCorrectWithBonus) {
+			System.out.println("2등 입니다");
+		} else if (count == 6) {
+			System.out.println("1등 입니다");
+		} else if (count <= 2) {
+			System.out.println("꽝입니다. ");
+		}
+	}
 }
