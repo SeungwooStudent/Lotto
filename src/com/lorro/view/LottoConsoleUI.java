@@ -46,5 +46,7 @@ public class LottoConsoleUI {
 	public void overlapNumber() {
 		System.out.println("중복된 값 입니다 다시 입력해주세요");
 	}
-	
+	public void lottoLimit() {
+		System.out.println("1이상 45이하의 숫자만 입력해주세요");
+	}
 }

@@ -17,11 +17,14 @@ public class LottoController {
 			lottoConsolUI.inputnumberDisplay();
 			try {
 				int inputnum = 0;
-				for (int i = 0; i < 6; i++) {
+				for (int i = 0; i < 6; i++) {					
 					inputnum = sc.nextInt();
 					lottoManager.addInputNumber(inputnum);
-					lottoManager.inputOverlapCheck();
-
+					lottoManager.lottoNumbers(inputnum);
+					boolean hasNumber = lottoManager.inputOverlapCheck(inputnum);
+					if(hasNumber) {
+						lottoConsolUI.overlapNumber();
+					}
 					isFinished = false;
 				}
 			} catch (InputMismatchException ime) {
@@ -45,11 +48,13 @@ public class LottoController {
 					lottoManager.lottoResult();
 				} else if (answer.equals("N") || answer.equals("n")) {
 					lottoConsolUI.endLotto();
+					break;
 				} else {
 					lottoConsolUI.lottoTry();
 				}
 			} else if (answer.equals("N") || answer.equals("n")) {
 				lottoConsolUI.endLotto();
+				break;
 			} else {
 				lottoConsolUI.lottoTry();
 			}
