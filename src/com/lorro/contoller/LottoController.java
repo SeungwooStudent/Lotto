@@ -1,6 +1,5 @@
 package com.lorro.contoller;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.lorro.model.LottoManager;
@@ -13,14 +12,13 @@ public class LottoController {
 		Scanner sc = new Scanner(System.in);
 
 		/*
-		1. 6개의 숫자를 입력받기. (무조건 1 <= N <= 45  임을 가정한다.)
-		2. 6개의 random 숫자 (담청번호) 를 생성한다.
-		3. 최종적으로 몇개 일치하는지 보여준다.
+		 * 1. 6개의 숫자를 입력받기. (무조건 1 <= N <= 45 임을 가정한다.) 2. 6개의 random 숫자 (담청번호) 를 생성한다.
+		 * 3. 최종적으로 몇개 일치하는지 보여준다.
 		 */
 		lottoConsolUI.inputnumberDisplay();
 
 		// 1
-		for (int i = 0; i < 6; i ++) {
+		for (int i = 0; i < 6; i++) {
 			int num = sc.nextInt();
 			lottoManager.addInputNumber(num);
 		}
@@ -37,9 +35,15 @@ public class LottoController {
 		lottoManager.printWinningNumbers();
 		// 3) 따라서, 결과는 몇개 맞았어!
 		int resultCount = lottoManager.getLottoResult();
-		boolean isCorrectWithBonus = lottoManager.isCorrectWithBonus();
-		lottoConsolUI.printResultCount(resultCount);
-		lottoConsolUI.printResult(resultCount, isCorrectWithBonus);
+
+		boolean isCorrectWithBonus = lottoManager.isCorrectWithBonus(resultCount);
+		if(isCorrectWithBonus) {
+			resultCount++;
+		}
+
+		lottoConsolUI.printResultCount(resultCount); // 당첨개수는 +@개 입니다
+
+		lottoConsolUI.printResult(resultCount, isCorrectWithBonus); // @등 입니다
 	}
 
 }
