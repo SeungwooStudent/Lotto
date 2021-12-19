@@ -43,7 +43,7 @@ public class LottoManager {
 
 	public void makeBonusNumber() {
 		do {
-			bonusNumber = random.nextInt(6) + 1;
+			bonusNumber = random.nextInt(45) + 1;
 		} while (winningNumbers.contains(bonusNumber));
 		System.out.println("bonusNumber : " + bonusNumber);
 	}
@@ -85,10 +85,11 @@ public class LottoManager {
 
 		return countplus;
 	}
+	
 
-	public boolean isCorrectWithBonus(int bonusNumber) {
-		for(int number : inputNumbers) {
-			if(inputNumbers.contains(number)) {
+	public boolean isCorrectWithBonus() {
+		for (int number : inputNumbers) {
+			if (inputNumbers.contains(number)) {
 				return true;
 			}
 		}
@@ -96,9 +97,7 @@ public class LottoManager {
 	}
 
 	/*
-	 * 1. 입력한 숫자는 총 6개이고 보너스 숫자는 1개이다 
-	 * 입력한 숫자와 보너스 숫자를 비교해라.
-	 * 2. 입력한 숫자 6개랑 보너스숫자 1개랑
+	 * 1. 입력한 숫자는 총 6개이고 보너스 숫자는 1개이다 입력한 숫자와 보너스 숫자를 비교해라. 2. 입력한 숫자 6개랑 보너스숫자 1개랑
 	 * 비교하면 최대 1개가 일치하는 것이다.
 	 */
 

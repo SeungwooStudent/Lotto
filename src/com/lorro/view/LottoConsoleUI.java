@@ -64,7 +64,7 @@ public class LottoConsoleUI {
 	}
 
 	public void printResult(int count, boolean isCorrectWithBonus) {
-		// 3개 맞으면 5등, 4개->4등 5->3등 6개 -> 1등
+		// 3개 맞으면 5등,   4개->4등      5->3등     6개 -> 1등
 		if (count == 3) {
 			System.out.println("5등 입니다");
 		} else if (count == 4) {
