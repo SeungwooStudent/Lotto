@@ -54,6 +54,7 @@ public class LottoManager {
 		while (it.hasNext()) {
 			int num = it.next();
 			System.out.print(num + " ");
+			
 		}
 		System.out.println();
 	}
@@ -66,14 +67,11 @@ public class LottoManager {
 	}
 
 	public void lottoNumbers(int number) {
-		//
 		if (number < 1 || number > 45) {
 			lottoConsolUI.lottoLimit();
-
 		}
 	}
 
-	//
 	public int getLottoResult() {
 		int countplus = 0;
 		for (int num : inputNumbers) {
@@ -85,7 +83,6 @@ public class LottoManager {
 
 		return countplus;
 	}
-	
 
 	public boolean isCorrectWithBonus() {
 		for (int number : inputNumbers) {
