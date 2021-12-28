@@ -16,6 +16,15 @@ public class LottoManager {
 	int bonusNumber;
 	Random random = new Random();
 
+	public void init() {
+		inputNumbers = new ArrayList<>();
+		winningNumbers = new HashSet<>();
+		//
+//		while (!inputNumbers.isEmpty()) {
+//			inputNumbers.remove(0);
+//		}
+	}
+
 	public void addInputNumber(int number) {
 		inputNumbers.add(number);
 	}
@@ -45,6 +54,22 @@ public class LottoManager {
 			bonusNumber = random.nextInt(45) + 1;
 		} while (winningNumbers.contains(bonusNumber));
 		System.out.println("bonusNumber : " + bonusNumber);
+	}
+
+	public int getBonusNumber() {
+		return bonusNumber;
+	}
+
+	public ArrayList<Integer> getWinningNumbers() {
+		ArrayList<Integer> numbers = new ArrayList<>();
+
+		Iterator<Integer> it = winningNumbers.iterator();
+		while (it.hasNext()) {
+			int num = it.next();
+			numbers.add(num);
+		}
+
+		return numbers;
 	}
 
 	public void printWinningNumbers() {

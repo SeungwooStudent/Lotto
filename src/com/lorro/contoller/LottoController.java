@@ -13,13 +13,15 @@ public class LottoController {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
-			
+
 			lottoConsolUI.lottoProgramStart();
 			int choice = sc.nextInt();
 			if (choice == 1) {
 				// 1
+				lottoManager.init();
 				boolean isFinished = true;
 				while (isFinished) {
+
 					lottoConsolUI.inputnumberDisplay();
 					try {
 						for (int i = 0; i < 6; i++) {
