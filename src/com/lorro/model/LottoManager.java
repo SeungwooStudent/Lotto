@@ -38,7 +38,6 @@ public class LottoManager {
 			winningNumbers.add(result);
 		}
 
-//		System.out.print("이번주 로또 당첨번호는 :" + winningNumbers + "입니다\n");
 	}
 
 	public void makeBonusNumber() {
@@ -54,7 +53,7 @@ public class LottoManager {
 		while (it.hasNext()) {
 			int num = it.next();
 			System.out.print(num + " ");
-			
+
 		}
 		System.out.println();
 	}

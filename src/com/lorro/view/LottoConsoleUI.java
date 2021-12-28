@@ -2,6 +2,15 @@ package com.lorro.view;
 
 public class LottoConsoleUI {
 
+	public void lottoProgramStart() {
+		System.out.println("1.로또 프로그램 시작");
+		System.out.println("2.로또 프로그램 종료");
+	}
+
+	public void EndLottoProgram() {
+		System.out.println("프로그램이 종료되었습니다");
+	}
+
 	public void inputnumberDisplay() {
 		System.out.println("Lotto 프로그램이 시작되었습니다");
 		System.out.println("1 ~ 45까지 숫자 중 원하시는 번호 6개를 입력하세요");
@@ -26,17 +35,17 @@ public class LottoConsoleUI {
 	public void printResult(int count, boolean isCorrectWithBonus) {
 		// 3개 맞으면 5등, 4개->4등 5->3등 6개 -> 1등
 		if (count == 3) {
-			System.out.println("5등 입니다");
+			System.out.println("5등 입니다\n");
 		} else if (count == 4) {
-			System.out.println("4등 입니다");
+			System.out.println("4등 입니다\n");
 		} else if (count == 5 && !isCorrectWithBonus) {
-			System.out.println("3등 입니다");
+			System.out.println("3등 입니다\n");
 		} else if (count == 5 && isCorrectWithBonus) {
-			System.out.println("2등 입니다");
+			System.out.println("2등 입니다\n");
 		} else if (count == 6) {
-			System.out.println("1등 입니다");
+			System.out.println("1등 입니다\n");
 		} else if (count <= 2) {
-			System.out.println("꽝입니다. ");
+			System.out.println("꽝입니다. \n");
 		}
 	}
 }
