@@ -59,7 +59,7 @@ public class LottoController {
 					isFinished = false;
 
 				}
-				
+
 			} else if (choice == 2) {
 				lottoConsolUI.EndLottoProgram();
 				break;

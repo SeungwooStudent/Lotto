@@ -1,6 +1,5 @@
 package com.lorro.main;
 
-import com.lorro.contoller.LottoController;
 import com.lorro.view.LottoUI;
 
 public class StartLotto {
